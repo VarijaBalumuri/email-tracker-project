@@ -38,9 +38,4 @@ public class EmailController {
         return emailService.getEmailsByStatus(status);
     }
 
-    @GetMapping("/test")
-    public String testEndpoint() {
-       return "Controller is working!";
-}
-
 }

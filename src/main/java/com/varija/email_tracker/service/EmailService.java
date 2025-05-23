@@ -37,14 +37,20 @@ public class EmailService {
     }
 
     private void processEmail(Email email) {
-        try {
-            Thread.sleep(3000); // simulate delay
-            email.setStatus("delivered");
-            emailRepository.save(email);
+    try {
+        Thread.sleep(3000); // simulate delay
 
-            emailStatusProducer.sendStatusUpdate("Email to " + email.getRecipient() + " delivered.");
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+        Email freshEmail = emailRepository.findById(email.getId()).orElse(null);
+        if (freshEmail == null) return;
+
+        // Just send status update without changing the original status
+        emailStatusProducer.sendStatusUpdate("Email to " + freshEmail.getRecipient() + " has status: " + freshEmail.getStatus());
+
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
     }
+}
+
+
+
 }

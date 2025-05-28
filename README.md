@@ -1,120 +1,118 @@
-📧 Email Tracker Project
+# Email Tracker
 
-A full-stack email tracking application that enables users to monitor email opens through embedded tracking pixels. Built with a Java Spring Boot backend and a React.js frontend, the project utilizes Docker for containerization and deployment. ￼
+## Project Description
 
-⸻
+Email Tracker is a full-stack application designed to monitor and track email deliveries and interactions. It includes a Spring Boot backend API, an Angular frontend with NgRx for state management, PostgreSQL database, Kafka messaging, and Docker support for containerization.
 
-⚙️ Tech Stack
-	•	Frontend: React.js, HTML, CSS, SCSS
-	•	Backend: Java 17, Spring Boot
-	•	Database: H2 (in-memory) or PostgreSQL (configurable)
-	•	Containerization: Docker, Docker Compose ￼
+---
 
-⸻
+## Features
 
-🛠️ Setup & Installation
+- **Track email delivery status**
+- **Monitor email open and click events**
+- **Kafka integration for asynchronous event handling**
+- **Spring Boot REST API backend**
+- **Angular frontend with NgRx state management**
+- **PostgreSQL for data persistence**
+- **Dockerized services for easy deployment**
+- **Basic CI/CD pipeline setup**
 
-Prerequisites
-	•	Docker installed on your machine
-	•	Docker Compose installed ￼
+---
 
-Steps
-	1.	Clone the Repository
+## Technologies Used
 
-git clone https://github.com/VarijaBalumuri/email-tracker-project.git
-cd email-tracker-project
+| Component          | Technology           |
+|--------------------|----------------------|
+| Backend            | Java, Spring Boot    |
+| Frontend           | Angular, NgRx        |
+| Database           | PostgreSQL           |
+| Messaging Queue    | Apache Kafka         |
+| Containerization   | Docker               |
+| CI/CD              | Pipeline scripts     |
 
+---
 
-	2.	Build and Run with Docker Compose
+## Getting Started
 
+### Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Java 17 or higher
+- Maven 3.6 or higher
+- Node.js 16 or higher
+- Angular CLI 15 or higher
+- Docker and Docker Compose installed
+- PostgreSQL 14 or higher
+- Kafka cluster (can run via Docker)
+
+---
+
+### Installation Steps
+
+1. **Clone the repository**
+
+    ```bash
+    git clone https://github.com/VarijaBalumuri/email-tracker.git
+    cd email-tracker
+    ```
+
+2. **Backend Setup**
+
+    - Navigate to the backend directory:
+      ```bash
+      cd backend
+      ```
+    - Build the project:
+      ```bash
+      ./mvnw clean install
+      ```
+
+3. **Frontend Setup**
+
+    - Navigate to the frontend directory:
+      ```bash
+      cd ../frontend
+      ```
+    - Install dependencies:
+      ```bash
+      npm install
+      ```
+
+4. **Configuration**
+
+    - Update backend configuration files (`application.properties` or `application.yml`) with your PostgreSQL and Kafka connection details.
+    - Adjust Angular environment files if necessary.
+
+5. **Run supporting services**
+
+    - Start PostgreSQL and Kafka either locally or using Docker.
+
+6. **Run the backend**
+
+    ```bash
+    ./mvnw spring-boot:run
+    ```
+
+7. **Run the frontend**
+
+    ```bash
+    ng serve
+    ```
+
+8. **Access the app**
+
+    Open your browser and visit:
+
+    ```
+    http://localhost:4200
+    ```
+
+---
+
+## Running with Docker
+
+To start all components using Docker Compose, run:
+
+```bash
 docker-compose up --build
-
-This command will build and start both the frontend and backend services.
-
-	3.	Access the Application
-	•	Frontend: Navigate to http://localhost:3000 in your browser.
-	•	Backend API: Access http://localhost:8080/api for API endpoints.
-
-⸻
-
-📩 How Email Tracking Works
-
-The application embeds a unique 1x1 transparent pixel in the body of outgoing emails. When a recipient opens the email, their client loads this pixel, triggering a request to the backend server. This request logs the open event, capturing metadata such as timestamp and IP address. ￼
-
-⸻
-
-📊 Dashboard Overview
-
-The React.js frontend provides a dashboard where users can: ￼
-	•	View a list of sent emails with their tracking status.
-	•	Monitor real-time open events.
-	•	Access detailed analytics for each tracked email. ￼
-
-⸻
-
-🧪 Running Tests
-
-Backend Tests
-	1.	Navigate to the Backend Directory
-
-cd email-tracker
-
-
-	2.	Run Tests Using Maven
-
-mvn test
-
-
-
-Frontend Tests
-	1.	Navigate to the Frontend Directory
-
-cd email-tracker-ui
-
-
-	2.	Install Dependencies
-
-npm install
-
-
-	3.	Run Tests
-
-npm test
-
-
-
-⸻
-
-🧑‍💻 Contributing
-
-Contributions are welcome! Please follow these steps:
-	1.	Fork the Repository
-Click on the “Fork” button at the top right of the repository page.
-	2.	Create a New Branch
-
-git checkout -b feature/YourFeatureName
-
-
-	3.	Commit Your Changes
-
-git commit -m "Add Your Feature"
-
-
-	4.	Push to Your Fork
-
-git push origin feature/YourFeatureName
-
-
-	5.	Create a Pull Request
-Open a pull request from your forked repository to the main branch of this repository.
-
-⸻
-
-📄 License
-
-This project is licensed under the MIT License.
-
-⸻
-
-📬 Contact
-For any inquiries or feedback, please contact Varija Balumuri.

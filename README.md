@@ -1,143 +1,109 @@
-# Email Tracker
+# Email Tracker Project
 
-## Project Description
-
-Email Tracker is a full-stack application designed to monitor and track email deliveries and interactions. It includes a Spring Boot backend API, an Angular frontend with NgRx for state management, PostgreSQL database, Kafka messaging, and Docker support for containerization.
-
----
-
-## Features
-
-- **Track email delivery status**
-- **Monitor email open and click events**
-- **Kafka integration for asynchronous event handling**
-- **Spring Boot REST API backend**
-- **Angular frontend with NgRx state management**
-- **PostgreSQL for data persistence**
-- **Dockerized services for easy deployment**
-- **Basic CI/CD pipeline setup**
+An end-to-end application for tracking and visualizing email status.  
+The backend REST API handles email tracking data, while the Angular frontend provides a user-friendly interface to visualize email statuses.
 
 ---
 
-## Technologies Used
+## Project Overview
 
-| Component          | Technology           |
-|--------------------|----------------------|
-| Backend            | Java, Spring Boot    |
-| Frontend           | Angular, NgRx        |
-| Database           | PostgreSQL           |
-| Messaging Queue    | Apache Kafka         |
-| Containerization   | Docker               |
-| CI/CD              | Pipeline scripts     |
+- **Backend:** Spring Boot REST API for managing email tracking data.
+- **Frontend:** Angular application that consumes the backend API and displays email statuses.
+- **Database:** PostgreSQL for persisting email records.
+- **Messaging:** Kafka integration for asynchronous email event processing.
+- **DevOps:** Dockerized services with CI/CD support.
 
 ---
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- Java 17 or higher
-- Maven 3.6 or higher
-- Node.js 16 or higher
-- Angular CLI 15 or higher
-- Docker and Docker Compose installed
-- PostgreSQL 14 or higher
-- Kafka cluster (can run via Docker)
+- Java 17+ and Maven (for backend)
+- Node.js 18+ and Angular CLI (for frontend)
+- PostgreSQL
+- Kafka (if running the full event-driven system)
+- Docker & Docker Compose (optional for containerized setup)
 
 ---
 
-### Installation Steps
+## Backend Setup (Email Tracker API)
 
-1. **Clone the repository**
+1. Clone the repo and navigate to the backend directory:
 
     ```bash
-    git clone https://github.com/VarijaBalumuri/email-tracker.git
-    cd email-tracker
+    git clone https://github.com/VarijaBalumuri/email-tracker-project.git
+    cd email-tracker-project/email-tracker\(backend\)
     ```
 
-2. **Backend Setup**
+2. Configure PostgreSQL database connection in `application.properties` or `application.yml`.
 
-    - Navigate to the backend directory:
-      ```bash
-      cd backend
-      ```
-    - Build the project:
-      ```bash
-      ./mvnw clean install
-      ```
-
-3. **Frontend Setup**
-
-    - Navigate to the frontend directory:
-      ```bash
-      cd ../frontend
-      ```
-    - Install dependencies:
-      ```bash
-      npm install
-      ```
-
-4. **Configuration**
-
-    - Update backend configuration files (`application.properties` or `application.yml`) with your PostgreSQL and Kafka connection details.
-    - Adjust Angular environment files if necessary.
-
-5. **Run supporting services**
-
-    - Start PostgreSQL and Kafka either locally or using Docker.
-
-6. **Run the backend**
+3. Build and run the backend:
 
     ```bash
+    ./mvnw clean install
     ./mvnw spring-boot:run
     ```
 
-7. **Run the frontend**
+4. The API will be available at:
+
+    ```
+    http://localhost:8080/api/emails
+    ```
+
+---
+
+## Frontend Setup (Email Tracker UI)
+
+1. Navigate to the frontend directory:
+
+    ```bash
+    cd ../email-tracker-ui
+    ```
+
+2. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Start the Angular development server:
 
     ```bash
     ng serve
     ```
 
-8. **Access the app**
-
-    Open your browser and visit:
+4. Open your browser and go to:
 
     ```
     http://localhost:4200
     ```
 
+5. The frontend expects the backend API running at `http://localhost:8080/api/emails`.  
+   To change the backend URL, update `baseUrl` in:
+
+    ```
+    src/app/services/email.service.ts
+    ```
+
 ---
 
-# Email Tracker UI
+## Running with Docker (Optional)
 
-Angular application to visualize email status from the Email Tracker API.
+You can build and run the backend and frontend using Docker for easier environment setup.
 
-## Prerequisites
+1. Build Docker images (if Dockerfiles are present).
+2. Use Docker Compose to spin up all services including PostgreSQL and Kafka.
 
-* Node.js 18+
-* Angular CLI (npm install -g @angular/cli)
+---
 
-## Setup
+## Technologies Used
 
-bash
-unzip email-tracker-ui.zip
-cd email-tracker-ui
-npm install
-ng serve
+- Backend: Java, Spring Boot, JPA, Hibernate, PostgreSQL, Kafka, Docker
+- Frontend: Angular, NgRx, TypeScript, RxJS
+- DevOps: Docker, CI/CD pipelines
 
+---
 
-Navigate to http://localhost:4200 in your browser.
+## Additional Notes
 
-## API endpoint
-
-The UI expects the Email Tracker REST API to be running at http://localhost:8080/api/emails.
-Adjust baseUrl in src/app/services/email.service.ts if your backend is hosted elsewhere.
-
-## Running with Docker
-
-To start all components using Docker Compose, run:
-
-```bash
-docker-compose up --build
+- Ensure Kafka and PostgreSQL services are running for full functionality.
+- Unit and integration tests are included in backend and frontend respectively.

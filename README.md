@@ -13,21 +13,6 @@ A full-stack email tracking application that enables users to monitor email open
 
 ⸻
 
-🧱 Project Architecture
-
-email-tracker-project/
-├── email-tracker-ui/           # React.js frontend
-│   ├── public/
-│   └── src/
-├── email-tracker/              # Java Spring Boot backend
-│   ├── src/
-│   └── pom.xml
-├── docker-compose.yml          # Docker Compose configuration
-└── README.md                   # Project documentation
-
-
-⸻
-
 ⚙️ Tech Stack
 	•	Frontend: React.js, HTML, CSS, SCSS
 	•	Backend: Java 17, Spring Boot

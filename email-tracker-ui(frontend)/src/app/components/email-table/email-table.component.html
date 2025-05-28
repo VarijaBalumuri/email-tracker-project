@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <th>Subject</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let email of (emails$ | async)">
+      <td>{{ email.recipient }}</td>
+      <td>{{ email.subject }}</td>
+      <td>
+        <span [ngClass]="statusChipClass(email.status)">{{ email.status }}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>

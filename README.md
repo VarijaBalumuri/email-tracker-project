@@ -4,15 +4,6 @@ A full-stack email tracking application that enables users to monitor email open
 
 ⸻
 
-🚀 Features
-	•	Email Tracking: Embed a 1x1 transparent pixel in emails to detect when recipients open them.
-	•	Real-Time Notifications: Receive immediate updates upon email opens.
-	•	User-Friendly Dashboard: Intuitive interface to manage and monitor email tracking activities.
-	•	Secure API: Robust backend ensuring data integrity and security.
-	•	Dockerized Deployment: Simplified setup and deployment using Docker and Docker Compose. ￼
-
-⸻
-
 ⚙️ Tech Stack
 	•	Frontend: React.js, HTML, CSS, SCSS
 	•	Backend: Java 17, Spring Boot
